@@ -1,9 +1,9 @@
 import { MDXProvider } from '@mdx-js/react'
 import { useRoutes } from 'react-router-dom'
 
-import Counter from './components/Counter'
-import Sidebar from './components/Sidebar'
-import { pages } from './routes'
+import Counter from '@/components/Counter'
+import Sidebar from '@/components/Sidebar'
+import { pages } from '@/routes'
 
 const components = {
   Counter,

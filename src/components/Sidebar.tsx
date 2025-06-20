@@ -1,7 +1,7 @@
 // src/components/Sidebar.tsx
 import { Link } from 'react-router-dom'
 
-import { pages } from '../routes'
+import { pages } from '@/routes'
 
 export default function Sidebar() {
   return (
