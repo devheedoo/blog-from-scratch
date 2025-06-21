@@ -1,26 +1,21 @@
 import type { ComponentType } from 'react'
 
-interface MdxModule {
-  default: ComponentType
-  frontmatter?: {
-    title?: string
+import * as Welcome from './content/welcome.md'
+
+type Page = {
+  path: string
+  Component: ComponentType
+  meta: {
+    title: string
+    description?: string
     [key: string]: unknown
   }
 }
 
-export const pages = Object.entries(
-  import.meta.glob('./content/**/*.mdx', { eager: true }),
-).map(([filePath, modRaw]) => {
-  const mod = modRaw as MdxModule
-
-  const slug = filePath
-    .replace('./content', '')
-    .replace(/\/index\.mdx$/, '/')
-    .replace(/\.mdx$/, '')
-
-  return {
-    path: slug || '/',
-    Component: mod.default,
-    title: mod.frontmatter?.title || slug.split('/').pop(),
-  }
-})
+export const pages: Page[] = [
+  {
+    path: '/',
+    Component: Welcome.default,
+    meta: Welcome.frontmatter,
+  },
+]
